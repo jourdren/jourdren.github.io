@@ -9,7 +9,7 @@ title: Lolo's website
 <ul>
   {% for post in site.posts %}
     <li>
-      {{ post.date }} - <a href="{{ post.url }}">{{ post.title }}</a>
+      <h2>{{ post.date | date_to_long_string }} - <a href="{{ post.url }}">{{ post.title }}</a></h2>
       {{ post.excerpt }}
     </li>
   {% endfor %}
