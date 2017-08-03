@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>{{ page.title }}</title>
+	<meta name="description" content=""> 
+	<meta name="keywords" content="">
+
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link href="css/application.css" media="all" rel="stylesheet">
+	<script src="js/application.js"></script>
+	<meta content="authenticity_token" name="csrf-param">
+<!--meta content="433QfAcb3N2ZO4aKTmWPpYWkrzjubgLf+BpIa3q+vx4=" name="csrf-token"-->
+	<script type="text/javascript">
+		window.arrowAlreadyAppear = false ;
+		function setMenuToDefault(now) {
+			var t = 500 ;
+			if (now)t = 10 ;
+			window.timerMenu = window.setTimeout(function() {
+				if ($("#menu00").offset()) {
+					animMenuTo($("#menu00"), false) ;
+				} else {
+					window.arrowAlreadyAppear = false ;
+					$("#arrowMenuDown").css("top",-1000) ;
+				}
+			}, t) ;
+		}
+		function animMenuTo(el, anim) {
+			window.clearTimeout(window.timerMenu) ;
+			window.timerMenu = null ;
+			if (!window.arrowAlreadyAppear) anim = false ;
+			window.arrowAlreadyAppear = true ;
+			if (anim) {
+				$("#arrowMenuDown").stop().animate({
+					top:el.offset().top+el.outerHeight(), 
+					left:el.offset().left+(el.outerWidth()-$("#arrowMenuDown").outerWidth())/2,
+					borderTopColor: el.css('background-color')
+				}, 300) ;
+			} else {
+				$("#arrowMenuDown").offset({
+					top:el.offset().top+el.outerHeight(), 
+					left:el.offset().left+(el.outerWidth()-$("#arrowMenuDown").outerWidth())/2,
+				}).css("border-top-color", el.css('background-color')) ;
+			}
+		}
+		$(document).ready(function() {
+			$("h1" ).not("#page-home h1").each(function() {
+				var cls = "" ;
+				if ($(this).hasClass("blue")) cls = "blue" ;
+				if ($(this).hasClass("blue2")) cls = "blue2" ;
+				if ($(this).hasClass("green")) cls = "green" ;
+				$(this).wrap( "<div class='h1wrap "+cls+"'></div>" ).css("float","left");
+			}) ;
+			$("<div class='clearfix'></div>").insertAfter(".h1wrap");
+
+			var alignTo = "left" ;
+			if ($("#page-home").length>0 || $("#page-uk").length>0) alignTo = "right" ;
+			$("h2" ).each(function() {
+				var cls = "" ;
+				if ($(this).hasClass("blue")) cls = "blue" ;
+				if ($(this).hasClass("blue2")) cls = "blue2" ;
+				if ($(this).hasClass("green")) cls = "green" ;
+				$(this).wrap( "<div class='h2wrap "+cls+"'></div>" ).css("float",alignTo);
+			}) ;
+			$("<div class='clearfix'></div>").insertAfter(".h2wrap");
+
+			setMenuToDefault(true) ;
+
+			$(".menu").hover(function() {
+				animMenuTo($(this), true) ;
+			}, function() {
+				setMenuToDefault(false) ;
+			}) ;
+
+			$(".smenu.active" ).each(function() {
+				$("#arrowSMenuRight").offset({
+					top: $(this).offset().top-2,
+					left: $(this).offset().left
+				}).css("border-left-color", $(this).css('color')) ;
+			}) ;
+
+			var html = "" ;
+			var numH2 = 0 ;
+			$(".containerStandardCol1 h2").each(function() {
+				var idTemp = "h2_"+numH2 ;
+				$(this).before("<a id='"+idTemp+"'></a>") ;
+				html += "<a class='ssmenu' href='#"+idTemp+"'>&gt; "+$(this).html()+"</a>" ;
+				numH2++ ;
+			}) ;
+			$(".smenu.active").after(html) ;
+			$('.containerStandardCol2 a[href^="#"]').click(function() {  
+				var the_id = $(this).attr("href");
+				$('html, body').animate({  
+					scrollTop:$(the_id).offset().top
+				}, 300);
+				return false;  
+			});
+			
+			var heightMax = 0 ;
+			$(".homeBottomBlock").css("height","auto") ;
+			$(".homeBottomBlock").each(function() {
+				heightMax = Math.max(heightMax, $(this).height()) ;
+			}) ;
+			$(".homeBottomBlock").css("height",heightMax+10) ;
+		}) ;
+	</script>
+	<script src="js/bootstrap.js"></script>
+<style>@media print {#ghostery-purple-box {display:none !important}}</style></head>
+<body id="page-uk" class="part00">
+	<div id="absoluteEls">
+		<div id="arrowMenuDown" style="left: 989px; border-top-color: rgb(0, 75, 149); top: -1000px;"></div>
+	</div>
+	<div id="infosDiv">Taille:</div>
+	<header>
+		<div id="mainHeader">
+			<div class="container_m">
+				<div class="pull-right hidden-xs" style="margin-top:24px;">
+					<div><img src="logos/logo3.png" alt="" width="548" height="38"></div>
+					<!--div id="divFrUk"><a class="" href="http://genomique.biologie.ens.fr/">Français</a> | <a class="active" href="http://genomique.biologie.ens.fr/uk">English</a></div-->
+				</div>
+				<div class="pull-left" style="margin-top:17px;"><a href="http://genomique.biologie.ens.fr/uk"><img src="logos/logo-petit.png" alt="" width="106" height="104"></a></div>
+				<div class="pull-right visible-xs" style="margin-top:24px; color:white; font-weight:bold; font-size:16px;">INSTITUT DE BIOLOGIE DE L'ÉCOLE NORMALE SUPÉRIEURE</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</header>
+	<div id="frise"></div>
+		
+	<nav>
+		<div id="mainNav">
+			<div class="container_m">
+				<a class="menu" href="http://genomique.biologie.ens.fr/uk/who_we_are" id="menu01">ABOUT US</a>
+				<a class="menu" href="http://genomique.biologie.ens.fr/uk/offers_and_services" id="menu02">OFFERS &amp; SERVICES</a>
+				<a class="menu" href="http://genomique.biologie.ens.fr/uk/equipments_and_tools" id="menu03">EQUIPMENTS &amp; TOOLS</a>
+				<a class="menu" href="http://genomique.biologie.ens.fr/uk/news_and_publications" id="menu04">NEWS</a>
+				<a class="menu" href="http://genomique.biologie.ens.fr/uk/contact" id="menu05">CONTACT US</a>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</nav>
+
+	<section>
+		<div id="mainContent">
+			<div class="container_m">
+	<div class="row_m" style="margin-top:25px;">
+
+{{ content }}
+
+	</div>
+</div>
+
+</div>
+	</section>
+
+	<footer>
+		<div id="mainFooter">
+			<div id="friseFooter"></div>
+			<div id="linksFooter">
+				<div class="container_m">
+					<a href="http://genomique.biologie.ens.fr/uk/legals" class="linkFooter">Mentions légales</a>
+					<a href="http://genomique.biologie.ens.fr/uk/contact" class="linkFooter" style="border-left:0;">Nous contacter</a>
+					<div class="clearfix"></div>
+					<div style="margin-top:30px;">
+						<div class="pull-left" style="margin-right:50px;"><a class="smenufooter" href="http://genomique.biologie.ens.fr/uk">HOMEPAGE</a></div><div class="pull-left" style="margin-right:50px;"><a class="smenufooter" href="http://genomique.biologie.ens.fr/uk/who_we_are">ABOUT US</a><a class="smenufooter" href="http://genomique.biologie.ens.fr/uk/who_we_are/presentation">• <span class="translation_missing" title="translation missing: en.presentation">Presentation</span></a><a class="smenufooter" href="http://genomique.biologie.ens.fr/uk/who_we_are/team">• Team</a><a class="smenufooter" href="http://genomique.biologie.ens.fr/uk/who_we_are/quality">• Quality</a></div><div class="pull-left" style="margin-right:50px;"><a class="smenufooter" href="http://genomique.biologie.ens.fr/uk/offers_and_services">OFFERS &amp; SERVICES</a><a class="smenufooter" href="http://genomique.biologie.ens.fr/uk/offers_and_services/services">• Services</a><a class="smenufooter" href="http://genomique.biologie.ens.fr/uk/offers_and_services/research_and_development">• Research and development</a><a class="smenufooter" href="http://genomique.biologie.ens.fr/uk/offers_and_services/submit_project">• Submit a project</a><a class="smenufooter" href="http://genomique.biologie.ens.fr/uk/offers_and_services/exchange_server">• Exchange server</a><a class="smenufooter" href="http://genomique.biologie.ens.fr/uk/offers_and_services/user_space">• User space</a></div><div class="pull-left" style="margin-right:50px;"><a class="smenufooter" href="http://genomique.biologie.ens.fr/uk/equipments_and_tools">EQUIPMENTS &amp; TOOLS</a><a class="smenufooter" href="http://genomique.biologie.ens.fr/uk/equipments_and_tools/equipments">• Equipments</a><a class="smenufooter" href="http://genomique.biologie.ens.fr/uk/equipments_and_tools/booking_calendar">• Booking calendar</a><a class="smenufooter" href="http://genomique.biologie.ens.fr/uk/equipments_and_tools/analyse_tools">• Analysis tools</a></div><div class="pull-left" style="margin-right:50px;"><a class="smenufooter" href="http://genomique.biologie.ens.fr/uk/news_and_publications">NEWS</a><a class="smenufooter" href="http://genomique.biologie.ens.fr/uk/news_and_publications/news">• News</a><a class="smenufooter" href="http://genomique.biologie.ens.fr/uk/news_and_publications/employment_and_training">• <span class="translation_missing" title="translation missing: en.Emplois_et_formations">Emplois Et Formations</span></a><a class="smenufooter" href="http://genomique.biologie.ens.fr/uk/news_and_publications/publications">• Publications</a></div><div class="pull-left" style="margin-right:0;"><a class="smenufooter" href="http://genomique.biologie.ens.fr/uk/contact">CONTACT US</a></div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	
+
+
+
+<div id="ghostery-purple-box" class="ghostery-right ghostery-none ghostery-collapsed ghostery-top"><div id="ghostery-box"><div id="ghostery-count" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; color: rgb(255, 255, 255);">0</div><div id="ghostery-pb-icons-container"><span id="ghostery-breaking-tracker" class="ghostery-pb-tracker" title="Mouchards sur les pages inaccessibles" style="background: rgba(0, 0, 0, 0) url(&quot;moz-extension://abc1ff0a-83f5-4765-9a8d-7e1a94a480b0/app/images/purple_box/breaking-icon.svg&quot;) repeat scroll 0% 0%; opacity: 0.5;"></span><span id="ghostery-slow-tracker" class="ghostery-pb-tracker" title="Mouchards lents" style="background: rgba(0, 0, 0, 0) url(&quot;moz-extension://abc1ff0a-83f5-4765-9a8d-7e1a94a480b0/app/images/purple_box/slow-icon.svg&quot;) repeat scroll 0% 0%; opacity: 0.5;"></span><span id="ghostery-non-secure-tracker" class="ghostery-pb-tracker" title="Mouchards non sécurisés" style="background: rgba(0, 0, 0, 0) url(&quot;moz-extension://abc1ff0a-83f5-4765-9a8d-7e1a94a480b0/app/images/purple_box/non-secure-icon.svg&quot;) repeat scroll 0% 0%; opacity: 0.5;"></span></div><div id="ghostery-title">Recherche</div><div id="ghostery-minimize"><span id="ghostery-minimize-icon"></span></div><span id="ghostery-close" style="background: rgba(0, 0, 0, 0) url(&quot;moz-extension://abc1ff0a-83f5-4765-9a8d-7e1a94a480b0/app/images/purple_box/collapse.svg&quot;) repeat scroll 0% 0%;"></span></div><div id="ghostery-pb-background"><div id="ghostery-trackerList"></div></div></div></body></html>
