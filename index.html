@@ -2,24 +2,14 @@
 layout: default
 title: Lolo's website
 ---
-	<h1>Hi there, I'm Lolo!</h1>
-	<p>Coucou</p>
-
-<h1>Post list</h1>
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
+	<h1>Genomic Paris Centre Blog</h1>
 
 <h1>Post excerpts</h1>
 
 <ul>
   {% for post in site.posts %}
     <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
+      {{ post.date }} - <a href="{{ post.url }}">{{ post.title }}</a>
       {{ post.excerpt }}
     </li>
   {% endfor %}

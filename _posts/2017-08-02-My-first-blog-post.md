@@ -11,13 +11,13 @@ This website only presents the activities of the IBENS platform of Genomic Paris
 
 <!--more-->
 
-###History
+### History
 
 In 1998, Institut Curie, ESPCI and Ecole normale supérieure (ENS Paris), have established one of the first French platform dedicated to transcriptomic data output and analysis. Once created, the genomic platform of the Montagne Sainte-Geneviève has always willed to make genomic equipment reachable. The goal is to help laboratories with their high-throughput projects and popularize great-scale technics through the scientific community. By achieving these goals, we are recognized on national scale thanks to approvals from RIO (Réseau Inter Organismes : CNRS, INSERM, INRA et CEA) in 2002, RNG (Réseau National Génopôle) in 2005 and IBiSA (Infrastructures en Biologie Santé et Agronomie) in 2008.
 
 As IBiSA renewed its approval in 2010, the genomic platform of the Montagne Sainte Geneviève went into partnership with the high-throughput sequencing platform of the Institut Curie. Genomic Paris Centre was taken on as partner by the France Génomique consortium, which is financed by the governmental funding program “Investissement d’Avenir”.
 
-###Functioning
+### Functioning
 
 Since the beginning, the genomic platform of the IBENS follows the recommendations of the IBiSA charter. The scientific community, as well as private companies, is welcome on our platform. Several committees were set up to follow the activities of the platform throughout time.
 
@@ -27,7 +27,7 @@ Once a year, a scientific committee with members from the financing institutes (
 
 A users committee also meets once a year to discuss the platform’s results and technological orientations for the future.
 
-###Technologies
+### Technologies
 
 Our activity started with DNA microarrays. From 2002 to 2006, more than 8,000 microarrays were produced: pan-genomic DNA chips (mouse, yeast, fruit fly) and more specific projects (diatoms, nervous system development in mouse, repeated and CGH regions in human). These microarrays were related to more than 130 projects across 9 European countries, with users mainly from research institutes, hospitals and universities. Thanks to the improvement of the manufactured microarrays’ quality and the decrease of their costs, we transferred our local production to external suppliers – Agilent and Nimblegen - in 2006. Facing the rise of high-throughput sequencing in 2010, we gradually moved from DNA microarrays to RNA sequencing, ending our support for biochips in 2013.
 
